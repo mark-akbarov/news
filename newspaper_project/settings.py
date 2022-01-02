@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -132,3 +133,12 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'akbarovumarxon@gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
