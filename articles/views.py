@@ -4,12 +4,16 @@ LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+from rest_framework.serializers import Serializer
 from .models import Article
+from .serializers import ArticleSerializer
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
     template_name = 'article_list.html'
     login_url = 'login'
+    serializer_class = ArticleSerializer
+
 
 
 
@@ -28,6 +32,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
     template_name = 'article_detail.html'
     login_url = 'login'
+    serializer_class = ArticleSerializer
 
     
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): 

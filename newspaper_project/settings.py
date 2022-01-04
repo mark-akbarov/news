@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     # 3rd Party
     'crispy_forms',
     'whitenoise.runserver_nostatic',
+    'rest_framework',
     
     #Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig',
+    'apis.apps.ApisConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -147,3 +149,9 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
