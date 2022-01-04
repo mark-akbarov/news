@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Article
+from articles import models
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,4 +9,4 @@ class ArticleSerializer(serializers.ModelSerializer):
             'date',
             'author',
         )
-        model = Article
+        model = models.Article
