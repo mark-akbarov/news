@@ -1,16 +1,20 @@
+from django.db.models import query
+from rest_framework import generics
 from django.contrib.auth.mixins import (
 LoginRequiredMixin, UserPassesTestMixin 
 )
+from django.views import generic
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+from rest_framework.serializers import Serializer
 from .models import Article
+
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
     template_name = 'article_list.html'
     login_url = 'login'
-
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
@@ -34,7 +38,6 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = ('title', 'body',)
     template_name = 'article_edit.html'
-    login_url = 'login'
 
     def test_func(self):
         obj = self.get_object()
