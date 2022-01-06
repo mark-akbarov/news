@@ -12,4 +12,3 @@ class ArticleDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Article.objects.all()
     serializer_class = ArticleSerializer
 
-# Create your views here.
